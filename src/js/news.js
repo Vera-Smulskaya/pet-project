@@ -16,7 +16,7 @@ const onSearchForm = e => {
   newsAPI.getNews(query).then(data => {
     renderMarkup(data.articles);
   });
-  refs.loadMoreBtn.dicabled = false;
+  refs.loadMoreBtn.disabled = false;
   refs.articlesEl.innerHTML = '';
 };
 
@@ -25,7 +25,7 @@ const onClickLoadMore = () => {
   newsAPI.getNews().then(data => {
     renderMarkup(data.articles);
     if (data.page === data.total_pages) {
-      refs.loadMoreBtn.dicabled = true;
+      refs.loadMoreBtn.disabled = true;
     }
   });
 };
