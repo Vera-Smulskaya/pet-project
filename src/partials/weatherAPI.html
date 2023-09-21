@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>weatherAPI</title>
+  <link rel="stylesheet" href="../css/weatherAPI.css">
+</head>
+
+<body>
+  <section class="weather">
+    <div class="container">
+      <form class="search-form js-search-form">
+        <input class="search-input js-search-input" type="text" name="user_country" required>
+        <button class="search-btn" type="submit">Search</button>
+      </form>
+      <div class="weather__wrapper js-weather__wrapper"></div>
+    </div>
+  </section>
+
+
+  <script src="../js/weatherAPI/weatherAPI.js" type="module"></script>
+  <script src="../js/weatherAPI/weather-card.js" type="module"></script>
+  <script src="../js/weatherAPI/weather.js" type="module"></script>
+
+</body>
+
+</html>
