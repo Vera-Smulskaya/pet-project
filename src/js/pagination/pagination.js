@@ -15,7 +15,20 @@ jsonPlaceHolderApi
   });
 
 const onLoadMoreBtnClick = event => {
-  console.log('first');
+  jsonPlaceHolderApi.page += 1;
+  jsonPlaceHolderApi
+    .fetchPosts()
+    .then(data => {
+      if (data.length === 0) {
+        loadMoreBtnEl.computedStyleMap.display = 'none';
+        return;
+      }
+
+      postListEl.insertAdjacentHTML('beforeend', createPostsCards(data));
+    })
+    .catch(err => {
+      console.log(err);
+    });
 };
 
 loadMoreBtnEl.addEventListener('click', onLoadMoreBtnClick);
