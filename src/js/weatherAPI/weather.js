@@ -18,6 +18,9 @@ const onSearchFormSubmit = event => {
   const searchQuery = event.currentTarget.elements.user_country.value.trim();
   fetchWeather(searchQuery)
     .then(data => {
+      data.sys.sunrise = convertSecondsToHoursAndMinutes(data.sys.sunrise);
+      data.sys.sunset = convertSecondsToHoursAndMinutes(data.sys.sunset);
+
       weatherCardEl.innerHTML = createWeatherCard(data);
     })
     .catch(err => {
@@ -27,6 +30,9 @@ const onSearchFormSubmit = event => {
           break;
         }
       }
+    })
+    .finally(() => {
+      event.target.reset();
     });
 };
 
